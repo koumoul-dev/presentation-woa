@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/sky.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h3>Architectures Orientées Web</h3>
+<!-- http://blog.octo.com/larchitecture-microservices-sans-la-hype-quest-ce-que-cest-a-quoi-ca-sert-est-ce-quil-men-faut/ -->
+    <aside class="notes">
+        Pas trop de détails sur les languages, frameworks ou implémentations.
+    </aside>
+			</section>
+			<section>
+				<section>
+					<h4>L'application à installer</h4>
+					<ul>
+						<li>On la télécharge (ou on insère un CD / DVD)</li>
+						<li>Puis on l'installe sur son ordinateur</li>
+						<li>Exemple : Word ou Excel</li>
+					</ul>
+				</section>
+				<section>
+					<table>
+						<thead>
+							<tr><th>Avantages</th><th>Inconvénients</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>Utilisable offline</td><td>Livraison<br>Installation<br>Mises à jours<br>Dépendant de l'OS</td></tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+			<section>
+				<section><h4>Architectures orientées services</h4>
+					<ul>
+						<li>C'est une représentation logique d'une activité métier avec un résultat attendu.</li>
+						<li>Elle est auto-contenue.</li>
+						<li>C'est une boite noire pour ses utilisateurs.</li>
+						<li>Elle peut être composée de sous-services.</li>
+						<li>Exemple : Google Docs</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Principes fondateurs</h5>
+					<ul>
+						<li>La valeur métier est plus importante que la stratégie technique.</li>
+						<!-- <li>Des cibles stratégiques sont plus importantes que les bénéfices des projets spécifiques.</li> -->
+						<li>L'inter-operabilité intrinsèque est plus importante que les intégrations spécifiques.</li>
+						<li>Il vaut mieux avoir des services génériques partagés que des implémentations spécifiques.</li>
+						<li>La flexibilité est plus importante que l'optimisation.</li>
+						<li>Il vaut mieux rafiner progressivement qu'essayer de faire parfait dès le début.</li>
+					</ul>
+				</section>
+				<section>
+					Pas de standard quand à la composition d'une architecture orientée services. Les services sont en général :<br>
+					<ul>
+						<li>Contractualisés</li>
+						<li>Autonomes</li>
+						<li>Accessibles</li>
+						<li>Boîtes noires</li>
+						<li>Granulaires</li>
+						<li>Composables</li>
+						<li>Réutilisables</li>
+						<li>(Auto-découvrables)</li>
+						<li>(Composés de services qui n'etaient pas prévus pour une architecture SOA)</li>
+					</ul>
+				</section>
+				<section>
+					<table>
+						<thead>
+							<tr><th>Avantages</th><th>Inconvénients</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>Utilisable offline</td><td>Livraison<br>Installation<br>Mises à jours<br>Dépendant de l'OS</td></tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h4>Web_service</h4>
+
+					voir la page wikipédia et developper
+					<h4>Web_API</h4>
+
+					voir la page wikipédia et developper
+
+					REST car simple et stateless -> a developper ? CRUD exemple
+				</section>
+				<section>Exemples
+					<ul>
+						<li>Contractualisés => swagger</li>
+						<li>Autonomes</li>
+						<li>Accessibles => DNS</li>
+						<li>Boîtes noires</li>
+						<li>Granulaires</li>
+						<li>Composables</li>
+						<li>Réutilisables</li>
+						<li>(Auto-découvrables)</li>
+						<li>(Composés de services qui n'etaient pas prévus pour une architecture SOA)</li>
+					</ul>
+				 </section>
+			</section>
+			<section>
+				<section>L'architecture micro-services</section>
+				<section>A fait le buzz, netflix, trop cool, etc ...</section>
+				<section>
+					Philosophy[edit]
+The philosophy of the microservices architecture essentially equals to the Unix philosophy of "Do one thing and do it well". It is described as follows:[18][19][20]
+
+The services are small - fine-grained to perform a single function.
+The organization culture should embrace automation of deployment and testing. This eases the burden on management and operations and allows for different development teams to work on independently deployable units of code.[21]
+The culture and design principles should embrace failure and faults, similar to anti-fragile systems.
+Each service is elastic, resilient, composable, minimal, and complete.[20]
+				</section>
+				<section>Avantages</section>
+				<section>Inconvénients</section>
+				<section>Trouver le bon découpage
+
+					Eviter les nanoservices.
+					Too-fine-grained microservices have been criticized as an anti-pattern
+					Problems include the code overhead (interface definition, retries), runtime overhead (serialization/deserialization, network traffic), and fragmented logic (useful functionality not implemented in one place, instead requiring combining many services).
+
+Proposed alternatives to nanoservices include:Proposed alternatives to nanoservices include:
+Package the functionality as a software library, rather than a service.
+Combine the functionality with other functionalities, producing a more substantial, useful service.
+Refactor the system, putting the functionality in other services or redesigning the system.
+
+				</section>
+			</section>
+			<section>
+				<section>Transition d'un gros service a plusieur (Aka pelage du monolithe - terme a revoir ?)</section>
+				<section>Big-bang = caca, cata, boum</section>
+				<section>Une orange (pomme ?) en train d'etre pelée</section>
+
+			</section>
+			<section>
+				<section>Automatisation (image robot) genre c'est comme ca qu'on va dominer le monde</section>
+				<section>Besoin de devops</section>
+				<section>build</section>
+				<section>intégration continue</section>
+				<section>déploiement livraison continue</section>
+				<section>Docker ? Containener as a service</section>
+
+			</section>
+			<section>
+				<section>Misc a bien replacer dans la présentation</section>
+				<section>Monitoring</section>
+				<section>Proxy mastering</section>
+				<section>Load balancing</section>
+				<section>Avenement du cloud, c'est trop facile :P</section>
+				<section>Différents type de BD - triangle avec 2 feat sur 3 possible seulement</section>
+				<section>Faut pas oublier l'expérience utilisateur, faut que ca trace</section>
+				<section>La doc !!! (swagger)</section>
+				<section>(alban qui présente ?) Les stacks pour y parvenir - la stack mean en détail<section>
+				<section>Tout est API, ceux qui bosse pas dessus seront chomeurs (image)</section>
+				<section>API gateway</section>
+			</section
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			history: true,
+
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}]
+		});
+	</script>
+</body>
+
+</html>
