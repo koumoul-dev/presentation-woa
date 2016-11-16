@@ -4,7 +4,7 @@ This presentation is made with [reveal.js](http://lab.hakim.se/reveal-js/#/)
 
 ## How to update ?
 
-You should install revel-cli
+You should install [reveal-cli](https://github.com/cesar/reveal-cli)
 ```
 npm install -g reveal-cli
 ```
