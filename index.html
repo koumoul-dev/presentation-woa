@@ -28,10 +28,10 @@
 		<div class="slides">
 			<section>
 				<h3>Architectures Orientées Web</h3>
-<!-- http://blog.octo.com/larchitecture-microservices-sans-la-hype-quest-ce-que-cest-a-quoi-ca-sert-est-ce-quil-men-faut/ -->
-    <aside class="notes">
-        Pas trop de détails sur les languages, frameworks ou implémentations.
-    </aside>
+				<!-- http://blog.octo.com/larchitecture-microservices-sans-la-hype-quest-ce-que-cest-a-quoi-ca-sert-est-ce-quil-men-faut/ -->
+				<aside class="notes">
+					Pas trop de détails sur les languages, frameworks ou implémentations.
+				</aside>
 			</section>
 			<section>
 				<section>
@@ -45,16 +45,23 @@
 				<section>
 					<table>
 						<thead>
-							<tr><th>Avantages</th><th>Inconvénients</th></tr>
+							<tr>
+								<th>Avantages</th>
+								<th>Inconvénients</th>
+							</tr>
 						</thead>
 						<tbody>
-							<tr><td>Utilisable offline</td><td>Livraison<br>Installation<br>Mises à jours<br>Dépendant de l'OS</td></tr>
+							<tr>
+								<td>Utilisable offline</td>
+								<td>Livraison<br>Installation<br>Mises à jours<br>Dépendant de l'OS</td>
+							</tr>
 						</tbody>
 					</table>
 				</section>
 			</section>
 			<section>
-				<section><h4>Architectures orientées services</h4>
+				<section>
+					<h4>Architectures orientées services</h4>
 					<ul>
 						<li>C'est une représentation logique d'une activité métier avec un résultat attendu.</li>
 						<li>Elle est auto-contenue.</li>
@@ -91,10 +98,16 @@
 				<section>
 					<table>
 						<thead>
-							<tr><th>Avantages</th><th>Inconvénients</th></tr>
+							<tr>
+								<th>Avantages</th>
+								<th>Inconvénients</th>
+							</tr>
 						</thead>
 						<tbody>
-							<tr><td>Pas de livraison<br>Pas d'installation<br>Mises à jours automatiques<br>Indépendant de l'OS</td><td>Nécessite une connection internet</td></tr>
+							<tr>
+								<td>Pas de livraison<br>Pas d'installation<br>Mises à jours automatiques<br>Indépendant de l'OS</td>
+								<td>Nécessite une connection internet</td>
+							</tr>
 						</tbody>
 					</table>
 				</section>
@@ -102,20 +115,35 @@
 			<section>
 				<section>
 					<h4>Services Web</h4>
-						<ul>
-							<li>Services de type SOAP</li>
-							<li>Services de type REST</li>
-						</ul>
-					voir la page wikipédia et developper
-					<h4>Web_API</h4>
-
-					voir la page wikipédia et developper
-
-					REST car simple et stateless -> a developper ? CRUD exemple
+					<img src="./img/web-schema.svg" style="background:none;border:none;box-shadow:none">
 				</section>
+				<section>
+					<h5>Representational state transfer (REST)</h5>
+					<ul>
+						<li>Style d'architecture</li>
+						<li>Client-Serveur</li>
+						<li>Sans état</li>
+						<li>Mise en cache</li>
+						<li>Une interface uniforme : identification des ressources, manipulation des ressources à travers des représentations, message auto-descriptif, hypermédia comme moteur d'état de l'application</li>
+					</ul>
+				</section>
+				<section>
+					<h5>API Web</h5>
+					<ul>
+						<li>Basé sur le protocole HTTP</li>
+						<li>Un verbe = une action</li>
+						<li>GET, POST, PUT, DELETE, PATCH</li>
+						<li>Permet de manipuler les ressources à partir d'une application client ou d'un autre service</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Contrat / documentation d'API</h5>
+					<iframe src="http://petstore.swagger.io/" style="width:100%;height:500px"></iframe>
+					<!-- <img src="./img/swagger.png"> -->
+				</section>
+
 				<section>Exemples
 					<ul>
-						<li>Contractualisés => swagger</li>
 						<li>Autonomes</li>
 						<li>Accessibles => DNS</li>
 						<li>Boîtes noires</li>
@@ -125,10 +153,11 @@
 						<li>(Auto-découvrables)</li>
 						<li>(Composés de services qui n'etaient pas prévus pour une architecture SOA)</li>
 					</ul>
-				 </section>
+				</section>
 			</section>
 			<section>
-				<section><h4>L'architecture micro-services</h4>
+				<section>
+					<h4>L'architecture micro-services</h4>
 					<ul>
 						<li>Apparue au début de la décénie</li>
 						<li>Popularisée par Netflix</li>
@@ -136,11 +165,10 @@
 					</ul>
 				</section>
 				<section>
-					<h5>Principe</h5>
-					La philosophie est identique à celle du monde UNIX : "Faire une seule chose mais bien le faire".
+					<h5>Principe</h5> La philosophie est identique à celle du monde UNIX : "Faire une seule chose mais bien le faire".
 					<ul>
 						<li>Les services sont petits et ne font qu'une seule fonction.</li>
-						<li>Le déploiement et le test automatique sont indispensables. Sans ca les opérationels ne peuvent pas suivre et les différentes équipes ne peuvent pas travailler indépendament sur des fonctionnalités différentes.</li>
+						<li>Le déploiement et le test automatique sont indispensables.</li>
 						<li>Durant la conception, il faut vivre avec les erreur et les pannes, quite à en provoquer.</li>
 						<li>Chaque service est élastique, résistant, composable, minimal et complet.</li>
 					</ul>
@@ -148,16 +176,21 @@
 				<section>
 					<table>
 						<thead>
-							<tr><th>Avantages</th><th>Inconvénients</th></tr>
+							<tr>
+								<th>Avantages</th>
+								<th>Inconvénients</th>
+							</tr>
 						</thead>
 						<tbody>
-							<tr><td>Maintenance simplifiée et moins coûteuse</td><td>Coût initial supérieur</td></tr>
+							<tr>
+								<td>Maintenance simplifiée et moins coûteuse</td>
+								<td>Coût initial supérieur</td>
+							</tr>
 						</tbody>
 					</table>
 				</section>
 				<section>
-					<h5>Exemple : redimensionnement de miniature</h5>
-					L'utilisateur charge une photo ou image pour son profil et celle ci ets redimensionnée automatiquement pour bien s'intégrer au site.
+					<h5>Exemple : redimensionnement de miniature</h5> L'utilisateur charge une photo ou image pour son profil et celle ci ets redimensionnée automatiquement pour bien s'intégrer au site.
 				</section>
 				<section>
 					<h5>Eviter les nano-services (1)</h5>
@@ -177,34 +210,143 @@
 					</ul>
 				</section>
 			</section>
+
 			<section>
 				<section>Transition d'un gros service a plusieur (Aka pelage du monolithe - terme a revoir ?)</section>
 				<section>Big-bang = cata, boum</section>
 				<section>Une orange (pomme ?) en train d'etre pelée</section>
-
 			</section>
-			<section>
-				<section>Automatisation (image robot)</section>
-				<section>Besoin de devops</section>
-				<section>build</section>
-				<section>intégration continue</section>
-				<section>déploiement livraison continue</section>
-				<section>Docker ? Containener as a service</section>
 
-			</section>
 			<section>
-				<section>Misc a bien replacer dans la présentation</section>
-				<section>Monitoring</section>
-				<section>Proxy mastering</section>
-				<section>Load balancing</section>
-				<section>Avenement du cloud, c'est trop facile :P</section>
-				<section>Différents type de BD - triangle avec 2 feat sur 3 possible seulement</section>
+				<section>
+					<h4>Architecture Web</h4>
+					<img src="./img/fullstack.png" style="background:none;border:none;box-shadow:none">
+				</section>
+				<section>
+					<h5>Choix de la stack</h5>
+					<img src="./img/stack-items.png">
+				</section>
+				<section>
+					<h5>Base de données</h5>
+					<img src="./img/ACP.jpg">
+				</section>
 				<section>Faut pas oublier l'expérience utilisateur, faut que ca trace</section>
-				<section>La doc !!! (swagger)</section>
-				<section>(alban qui présente ?) Les stacks pour y parvenir - la stack mean en détail<section>
 				<section>Tout est API (image)</section>
 				<section>API gateway</section>
-			</section
+			</section>
+			<section>
+				<section>
+					<h4>Automatisation</h4>
+					<img src="./img/five-little-robots.svg" style="background:none;border:none;box-shadow:none">
+				</section>
+				<section>
+					<h5>Devops</h5>
+					<ul>
+						<li>development + operations</li>
+						<li>Objectifs contradictoire : fonctionnalité vs stabilité</li>
+						<li>Dévelopements, Déploiements, tests, déploiements, test, ...</li>
+						<li>Feedback / amélioration rapide sur des petites itérations</li>
+						<li>Mesures, analyses, surveillance</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Amélioration continue</h5>
+					<img src="./img/DevOps-cycle.png">
+				</section>
+				<section>
+					<h5>Développement</h5>
+					<img src="./img/computers.svg" style="width:80%">
+				</section>
+				<section>
+					<h5>Build</h5>
+					<ul>
+						<li>Objectif : préparer le livrable</li>
+						<li>Déclenché au commit</li>
+						<li>Peut se décomposer en plusieurs phases</li>
+						<li>Si tous les indicateurs sont au vert, un livrable est créé</li>
+						<li>Différents types : archive, conteneur, image, tag dans un SCM, ...</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Tests</h5>
+					<ul>
+						<li>Les tests unitaires font partie du développement</li>
+						<li>Tests d'intégration</li>
+						<li>Les tests sont programmés ou enregistrés</li>
+						<li>Tests d'API et test d'UI</li>
+						<li>Testcomplete, SoapUI, Selenium, ...</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Release</h5>
+					<ul>
+						<li>Le livrable a un code (peut être lié a un hash de commit)</li>
+						<li>Le livrable est promu</li>
+						<li>On peut avoir une étape intermédiaire : release candidate</li>
+						<li>Mise a jour dans le gestionnaire de code (tag)</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Déploiement</h5>
+					<ul>
+						<li>Le livrable est installé dans un ou plusieurs environnements</li>
+						<li>Processus automatisé : Ansible, Docker, ...</li>
+						<li>Les configurations de déploiement peuvent être versionnées</li>
+						<li>Bien maitriser la configuration des proxys</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Exploitation</h5>
+					<ul>
+						<li>Mise en place de contrôles et d'alertes</li>
+						<li>Ajustement par rapport à la charge (Load balancing)</li>
+						<li>Collecte d'indicateurs (Monitoring)</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h4>Avenement du cloud</h4>
+					<img src="./img/world-wide-web.svg" style="background:none;border:none;box-shadow:none;width:50%">
+				</section>
+				<section>
+					<h5>Outils en ligne</h5>
+					<ul>
+						<li>SCM : Gitlab, Github, ...</li>
+						<li>Build : Gitlab, TravisCI, ...</li>
+						<li>Registres docker : Gitlab, Dockerhub, ...</li>
+						<li>Test, monitoring, ...</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Hébergement de machines virtuelles</h5>
+					<ul>
+						<li>Provisionnées en quelques minutes</li>
+						<li>Peuvent être conséquentes et supporter beaucoup de machine</li>
+						<li>Très facile de composer sa propre architecture / sous-réseau</li>
+						<li>On peut s'adapter facilement aux variations et pics de charge</li>
+						<li>Il faut des compétences d'opérationel</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Hébergement de conteneurs</h5>
+					<ul>
+						<li>Les conteneurs sont plus légers que les VM</li>
+						<li>Conteneurs déployés en quelques secondes</li>
+						<li>On ne s'occupe plus du matériel</li>
+						<li>Très facile de composer sa propre architecture / sous-réseau</li>
+						<li>On peut s'adapter encore plus facilement aux variations et pics de charge</li>
+						<li>Compétences d'opérationel plus restreintes</li>
+					</ul>
+				</section>
+				<section>
+					<h5>La conteneurisation gagne du terrain !</h5>
+					<img src="./img/Docker_Supply-chain-V1.5-01.png" style="background:none;border:none;box-shadow:none">
+				</section>
+			</section>
+			<section>
+				<h3>Merci !</h3> Des questions ?
+			</section>
 		</div>
 	</div>
 
