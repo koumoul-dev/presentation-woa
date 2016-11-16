@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>reveal.js</title>
+	<title>Architectures Orientées Web</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/sky.css">
@@ -94,15 +94,18 @@
 							<tr><th>Avantages</th><th>Inconvénients</th></tr>
 						</thead>
 						<tbody>
-							<tr><td>Utilisable offline</td><td>Livraison<br>Installation<br>Mises à jours<br>Dépendant de l'OS</td></tr>
+							<tr><td>Pas de livraison<br>Pas d'installation<br>Mises à jours automatiques<br>Indépendant de l'OS</td><td>Nécessite une connection internet</td></tr>
 						</tbody>
 					</table>
 				</section>
 			</section>
 			<section>
 				<section>
-					<h4>Web_service</h4>
-
+					<h4>Services Web</h4>
+						<ul>
+							<li>Services de type SOAP</li>
+							<li>Services de type REST</li>
+						</ul>
 					voir la page wikipédia et developper
 					<h4>Web_API</h4>
 
@@ -125,30 +128,53 @@
 				 </section>
 			</section>
 			<section>
-				<section>L'architecture micro-services</section>
-				<section>A fait le buzz, netflix, etc ...</section>
-				<section>
-					Philosophy[edit]
-The philosophy of the microservices architecture essentially equals to the Unix philosophy of "Do one thing and do it well". It is described as follows:[18][19][20]
-
-The services are small - fine-grained to perform a single function.
-The organization culture should embrace automation of deployment and testing. This eases the burden on management and operations and allows for different development teams to work on independently deployable units of code.[21]
-The culture and design principles should embrace failure and faults, similar to anti-fragile systems.
-Each service is elastic, resilient, composable, minimal, and complete.[20]
+				<section><h4>L'architecture micro-services</h4>
+					<ul>
+						<li>Apparue au début de la décénie</li>
+						<li>Popularisée par Netflix</li>
+						<li>Considérée (a tord) comme un remède miracle</li>
+					</ul>
 				</section>
-				<section>Avantages</section>
-				<section>Inconvénients</section>
-				<section>Trouver le bon découpage
-
-					Eviter les nanoservices.
-					Too-fine-grained microservices have been criticized as an anti-pattern
-					Problems include the code overhead (interface definition, retries), runtime overhead (serialization/deserialization, network traffic), and fragmented logic (useful functionality not implemented in one place, instead requiring combining many services).
-
-Proposed alternatives to nanoservices include:Proposed alternatives to nanoservices include:
-Package the functionality as a software library, rather than a service.
-Combine the functionality with other functionalities, producing a more substantial, useful service.
-Refactor the system, putting the functionality in other services or redesigning the system.
-
+				<section>
+					<h5>Principe</h5>
+					La philosophie est identique à celle du monde UNIX : "Faire une seule chose mais bien le faire".
+					<ul>
+						<li>Les services sont petits et ne font qu'une seule fonction.</li>
+						<li>Le déploiement et le test automatique sont indispensables. Sans ca les opérationels ne peuvent pas suivre et les différentes équipes ne peuvent pas travailler indépendament sur des fonctionnalités différentes.</li>
+						<li>Durant la conception, il faut vivre avec les erreur et les pannes, quite à en provoquer.</li>
+						<li>Chaque service est élastique, résistant, composable, minimal et complet.</li>
+					</ul>
+				</section>
+				<section>
+					<table>
+						<thead>
+							<tr><th>Avantages</th><th>Inconvénients</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>Maintenance simplifiée et moins coûteuse</td><td>Coût initial supérieur</td></tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h5>Exemple : redimensionnement de miniature</h5>
+					L'utilisateur charge une photo ou image pour son profil et celle ci ets redimensionnée automatiquement pour bien s'intégrer au site.
+				</section>
+				<section>
+					<h5>Eviter les nano-services (1)</h5>
+					<ul>
+						<li>Les micro-services trop petits sont un anti-pattern</li>
+						<li>Surcharge de code écrit (et donc de bugs)</li>
+						<li>Surcharge d'exécution : transformations, trafic réseau, ...</li>
+						<li>Logique fragmentée : la fonctionnalité est distribuée sur plusieurs services => surcoût de conception et de maintenance</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Eviter les nano-services (2)</h5>
+					<ul>
+						<li>Packager une fonctionnalité en tant que librairie plutot que service</li>
+						<li>Combiner la fonctionnalité avec d'autres pour avoir un service un peu plus conséquent</li>
+						<li>Refactoriser le système : refaire son design ou mettre la fonctionnalité dans d'autres services existants</li>
+					</ul>
 				</section>
 			</section>
 			<section>
