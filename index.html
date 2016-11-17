@@ -29,45 +29,38 @@
 			<section>
 				<h3>Architectures Orientées Web</h3>
 				<!-- http://blog.octo.com/larchitecture-microservices-sans-la-hype-quest-ce-que-cest-a-quoi-ca-sert-est-ce-quil-men-faut/ -->
-				<aside class="notes">
-					Pas trop de détails sur les languages, frameworks ou implémentations.
-				</aside>
 			</section>
 			<section>
 				<section>
 					<h4>L'application à installer</h4>
 					<ul>
-						<li>On la télécharge (ou on insère un CD / DVD)</li>
-						<li>Puis on l'installe sur son ordinateur</li>
+						<li>Utilisable offline</li>
+						<li>Il faut la livrer (téléchargement manuel, DVD)</li>
+						<li>Il faut l'installer et la mettre a jour manuellement</li>
+						<li>Souvent dépendant de l'OS</li>
 						<li>Exemple : Word ou Excel</li>
 					</ul>
-				</section>
-				<section>
-					<table>
-						<thead>
-							<tr>
-								<th>Avantages</th>
-								<th>Inconvénients</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Utilisable offline</td>
-								<td>Livraison<br>Installation<br>Mises à jours<br>Dépendant de l'OS</td>
-							</tr>
-						</tbody>
-					</table>
 				</section>
 			</section>
 			<section>
 				<section>
-					<h4>Architectures orientées services</h4>
+					<h4>Application servicialisée</h4>
+					<ul>
+						<li>Pas de livraison (téléchargement automatique)</li>
+						<li>Pas d'installation, ci ce n'est un client pour l'utiilser</li>
+						<li>Mises à jours automatiques</li>
+						<li>Nécessite une connection internet pour fonctionner</li>
+						<li>Le client est dépendant de l'OS, pas l'application</li>
+						<li>Exemple : Google Docs</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Architectures orientées services</h5>
 					<ul>
 						<li>C'est une représentation logique d'une activité métier avec un résultat attendu.</li>
 						<li>Elle est auto-contenue.</li>
 						<li>C'est une boite noire pour ses utilisateurs.</li>
 						<li>Elle peut être composée de sous-services.</li>
-						<li>Exemple : Google Docs</li>
 					</ul>
 				</section>
 				<section>
@@ -94,22 +87,6 @@
 						<li>(Auto-découvrables)</li>
 						<li>(Composés de services qui n'etaient pas prévus pour une architecture SOA)</li>
 					</ul>
-				</section>
-				<section>
-					<table>
-						<thead>
-							<tr>
-								<th>Avantages</th>
-								<th>Inconvénients</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Pas de livraison<br>Pas d'installation<br>Mises à jours automatiques<br>Indépendant de l'OS</td>
-								<td>Nécessite une connection internet</td>
-							</tr>
-						</tbody>
-					</table>
 				</section>
 			</section>
 			<section>
@@ -164,29 +141,22 @@
 					</ul>
 				</section>
 				<section>
-					<h5>Principe</h5> La philosophie est identique à celle du monde UNIX : "Faire une seule chose mais bien le faire".
+					<h5>Principe</h5>
 					<ul>
-						<li>Les services sont petits et ne font qu'une seule fonction.</li>
-						<li>Le déploiement et le test automatique sont indispensables.</li>
-						<li>Durant la conception, il faut vivre avec les erreur et les pannes, quite à en provoquer.</li>
-						<li>Chaque service est élastique, résistant, composable, minimal et complet.</li>
+						<li>La philosophie est identique à celle du monde UNIX : "Faire une seule chose mais bien le faire"</li>
+						<li>Les services sont petits et ne font qu'une seule fonction</li>
+						<li>Le déploiement et le test automatique sont indispensables</li>
+						<li>Durant la conception, il faut vivre avec les erreur et les pannes, quite à en provoquer</li>
+						<li>Chaque service est élastique, résistant, composable, minimal et complet</li>
 					</ul>
 				</section>
 				<section>
-					<table>
-						<thead>
-							<tr>
-								<th>Avantages</th>
-								<th>Inconvénients</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Maintenance simplifiée et moins coûteuse</td>
-								<td>Coût initial supérieur</td>
-							</tr>
-						</tbody>
-					</table>
+					<h5>Intérêt</h5>
+					<ul>
+						<li>Coût de mise en place supérieur</li>
+						<li>Maintenance simplifiée et moins coûteuse</li>
+					</ul>
+					<img src="./img/piechart.gif">
 				</section>
 				<section>
 					<h5>Exemple : redimensionnement de miniature</h5> L'utilisateur charge une photo ou image pour son profil et celle ci ets redimensionnée automatiquement pour bien s'intégrer au site.
@@ -211,6 +181,16 @@
 			</section>
 
 			<section>
+				<section>
+					<h4>Faire évoluer une architecture mono-service</h4>
+					<ul>
+						<li>Toutes les fonctionnalités sont réalisées dans le même service</li>
+						<li>Utilisateurs, documents, évènement, discussions, ...</li>
+						<li>Conception initiale ou évolutions qui ont ajouté des fonctionnalité</li>
+						<li>Le service devient trop complexe à maintenir</li>
+						<li>Evolutions compliquées à ajouter : nouveaux composants dans nouveaux langages</li>
+					</ul>
+				</section>
 				<section>Transition d'un gros service a plusieur (Aka pelage du monolithe - terme a revoir ?)</section>
 				<section>Big-bang = cata, boum</section>
 				<section>Une orange (pomme ?) en train d'etre pelée</section>
@@ -229,9 +209,12 @@
 					<h5>Base de données</h5>
 					<img src="./img/ACP.jpg">
 				</section>
+				<section>Contractualisation des entités</section>
+				<section>Authentification adaptée (JWT)</section>
+				<section>Compatibilité ascendante ! (versionnage d'API ?)</section>
 				<section>Faut pas oublier l'expérience utilisateur, faut que ca trace</section>
 				<section>Tout est API (image)</section>
-				<section>API gateway</section>
+				<section>API gateway ?</section>
 			</section>
 			<section>
 				<section>
