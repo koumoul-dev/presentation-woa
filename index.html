@@ -47,7 +47,7 @@
 					<h4>Application servicialisée</h4>
 					<ul>
 						<li>Pas de livraison (téléchargement automatique)</li>
-						<li>Pas d'installation, ci ce n'est un client pour l'utiilser</li>
+						<li>Pas d'installation, si ce n'est un client pour l'utiilser</li>
 						<li>Mises à jours automatiques</li>
 						<li>Nécessite une connection internet pour fonctionner</li>
 						<li>Le client est dépendant de l'OS, pas l'application</li>
@@ -80,48 +80,6 @@
 						<li>Contractualisés</li>
 						<li>Autonomes</li>
 						<li>Accessibles</li>
-						<li>Boîtes noires</li>
-						<li>Granulaires</li>
-						<li>Composables</li>
-						<li>Réutilisables</li>
-						<li>(Auto-découvrables)</li>
-						<li>(Composés de services qui n'etaient pas prévus pour une architecture SOA)</li>
-					</ul>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h4>Services Web</h4>
-					<img src="./img/web-schema.svg" style="background:none;border:none;box-shadow:none">
-				</section>
-				<section>
-					<h5>Representational state transfer (REST)</h5>
-					<ul>
-						<li>Style d'architecture</li>
-						<li>Client-Serveur</li>
-						<li>Sans état</li>
-						<li>Mise en cache</li>
-						<li>Une interface uniforme : identification des ressources, manipulation des ressources à travers des représentations, message auto-descriptif, hypermédia comme moteur d'état de l'application</li>
-					</ul>
-				</section>
-				<section>
-					<h5>API Web</h5>
-					<ul>
-						<li>Basé sur le protocole HTTP</li>
-						<li>Un verbe = une action</li>
-						<li>GET, POST, PUT, DELETE, PATCH</li>
-						<li>Permet de manipuler les ressources à partir d'une application client ou d'un autre service</li>
-					</ul>
-				</section>
-				<section>
-					<h5>Contrat / documentation d'API</h5>
-					<img src="./img/swagger.png">
-				</section>
-
-				<section>Exemples
-					<ul>
-						<li>Autonomes</li>
-						<li>Accessibles => DNS</li>
 						<li>Boîtes noires</li>
 						<li>Granulaires</li>
 						<li>Composables</li>
@@ -179,7 +137,6 @@
 					</ul>
 				</section>
 			</section>
-
 			<section>
 				<section>
 					<h4>Faire évoluer une architecture mono-service</h4>
@@ -191,11 +148,27 @@
 						<li>Evolutions compliquées à ajouter : nouveaux composants dans nouveaux langages</li>
 					</ul>
 				</section>
-				<section>Transition d'un gros service a plusieur (Aka pelage du monolithe - terme a revoir ?)</section>
-				<section>Big-bang = cata, boum</section>
-				<section>Une orange (pomme ?) en train d'etre pelée</section>
+				<section>
+					<h5>Tout rédévelopper en plusieurs services</h5>
+					<ul>
+						<li>On redéveloppe tous les services de la même manière</li>
+						<li>Stack homogène</li>
+						<li>Mauvaise idée, Big-bang = catastrophe</li>
+						<li>Nécessite un investissement conséquent sur une période étalée</li>
+						<li>Maintenance en double</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Transition progressive</h5>
+					<ul>
+						<li>On identifie bien les briques de fonctionnalités qui peuvent être isolées</li>
+						<li>On les servicialise et on les intègre une a une</li>
+						<li>On peut aussi s'interfacer avec des services existants</li>
+						<li>Stack qui peut être hétérogène</li>
+						<li>Le reste du produit peut encore évoluer</li>
+					</ul>
+				</section>
 			</section>
-
 			<section>
 				<section>
 					<h4>Architecture Web</h4>
@@ -206,15 +179,94 @@
 					<img src="./img/stack-items.png">
 				</section>
 				<section>
+					<h5>Nombre de services</h5>
+					<ul>
+						<li>Il va dépendre du découpage fonctionnel</li>
+						<li>Cartographie applicative alignée sur la cartographie métier</li>
+					</ul>
+				</section>
+				<section>
 					<h5>Base de données</h5>
 					<img src="./img/ACP.jpg">
 				</section>
-				<section>Contractualisation des entités</section>
-				<section>Authentification adaptée (JWT)</section>
-				<section>Compatibilité ascendante ! (versionnage d'API ?)</section>
-				<section>Faut pas oublier l'expérience utilisateur, faut que ca trace</section>
-				<section>Tout est API (image)</section>
-				<section>API gateway ?</section>
+				<section>
+					<h5>Authentification centralisée</h5>
+					<img src="./img/central-authentication.gif">
+					<ul>
+						<li>Session centralisée dans le serveur</li>
+						<li>Latence aditionnelle</li>
+						<li>Single point of failure</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Authentification par jeton</h5>
+					<ul>
+						<li>JSON Web Token (JWT)</li>
+						<li>Le jeton porte la session</li>
+						<li>Il est stocké coté client</li>
+						<li>Emis dans chaque requête HTTP (header)</li>
+						<li>Il est signé par la clé privée du fournisseur d'authentification</li>
+						<li>Les services qui ont la clé publique du fournisseur d'authentification peuvent le vérifier</li>
+						<li>La durée du jeton peut être plus longue</li>
+						<li>Serveur reste stateless</li>
+					</ul>
+				</section>
+				<section>
+					<h5>API des services backends</h5>
+					<ul>
+						<li>Points d'entrée pour les clients Web et les autres services</li>
+						<li>Bien respecter la modélisation REST et les verbes HTTP</li>
+						<li>Un verbe = une action</li>
+						<li>GET, POST, PUT, DELETE, PATCH</li>
+						<li>La documentation et la contractualisation sont essentielles</li>
+						<li>Ne pas mettre d'états dans le services ! (stateless => scalable)</li>
+						<li>Peut se concevoir rapidement en wrappant un service existant</li>
+						<li>Bien maitriser l'asynchronisme !</li>
+					</ul>
+				</section>
+				<!-- <section>
+					<h5>Representational state transfer (REST)</h5>
+					<ul>
+						<li>Style d'architecture</li>
+						<li>Client-Serveur</li>
+						<li>Sans état</li>
+						<li>Mise en cache</li>
+						<li>Une interface uniforme : identification des ressources, manipulation des ressources à travers des représentations, message auto-descriptif, hypermédia comme moteur d'état de l'application</li>
+					</ul>
+				</section> -->
+				<section>
+					<h5>Contrat / documentation d'API</h5>
+					<img src="./img/swagger.png">
+				</section>
+				<section>
+					<h5>Compatibilité ascendante</h5>
+					<ul>
+						<li>Elles sont faites pour être utilisées par d'autres applications</li>
+						<li>Compatibilité non assurée => application cassée</li>
+						<li>Versionner les API</li>
+						<li>Privilégier les ajouts à de la réécriture</li>
+						<li>Bien documenter les changement entre les versions</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Interface cliente</h5>
+					<ul>
+						<li>HTML (contenu) + CSS (forme) + Javascript (dynamisme + interactions)</li>
+						<li>L'utilisateur ne voit que ca, pas tout ce qu'il y a derrière</li>
+						<li>Les clients web n'ont plus rien a envier des applications installées</li>
+						<li>Belles animations, ergonomies matures</li>
+						<li>On peut même faire de la 3D dans le naviagateur (jeux possibles)</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Expérience utilisateur</h5>
+					<ul>
+						<li>Reste le point le plus important</li>
+						<li>La latence doit être inférieure à 1 seconde</li>
+						<li>L'architecture est construite dans ce but</li>
+						<li>Bien maitriser les proxys, les caches, CDN ...</li>
+					</ul>
+				</section>
 			</section>
 			<section>
 				<section>
