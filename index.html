@@ -8,7 +8,7 @@
 	<title>Architectures Orientées Web</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/sky.css">
+	<link rel="stylesheet" href="css/theme/koumoul.css">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -27,20 +27,11 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
+				<img src="img/koumoul.png" alt="logo Koumoul" style="width:15%" class="plain">
 				<h3>Architectures Orientées Web</h3>
+				<a href="https://koumoul.com">koumoul.com</a> -
+				<a href="mailto:contact@koumoul.com">contact@koumoul.com</a>
 				<!-- http://blog.octo.com/larchitecture-microservices-sans-la-hype-quest-ce-que-cest-a-quoi-ca-sert-est-ce-quil-men-faut/ -->
-			</section>
-			<section>
-				<section>
-					<h4>L'application à installer</h4>
-					<ul>
-						<li>Utilisable offline</li>
-						<li>Il faut la livrer (téléchargement manuel, DVD)</li>
-						<li>Il faut l'installer et la mettre a jour manuellement</li>
-						<li>Souvent dépendant de l'OS</li>
-						<li>Exemple : Word ou Excel</li>
-					</ul>
-				</section>
 			</section>
 			<section>
 				<section>
@@ -90,6 +81,14 @@
 			</section>
 			<section>
 				<section>
+					<h4>L'architecture mono-service</h4>
+					<ul>
+						<li>Toutes les fonctionnalités sont réalisées dans le même service</li>
+						<li>Utilisateurs, documents, évènement, discussions, ...</li>
+						<li>Le service peut devenir complexe à maintenir et à faire évoluer</li>
+					</ul>
+				</section>
+				<section>
 					<h4>L'architecture micro-services</h4>
 					<ul>
 						<li>Apparue au début de la décénie</li>
@@ -103,7 +102,7 @@
 						<li>La philosophie est identique à celle du monde UNIX : "Faire une seule chose mais bien le faire"</li>
 						<li>Les services sont petits et ne font qu'une seule fonction</li>
 						<li>Le déploiement et le test automatique sont indispensables</li>
-						<li>Durant la conception, il faut vivre avec les erreur et les pannes, quite à en provoquer</li>
+						<li>Durant la conception, il faut vivre avec les erreurs et les pannes, quite à en provoquer</li>
 						<li>Chaque service est élastique, résistant, composable, minimal et complet</li>
 					</ul>
 				</section>
@@ -113,7 +112,7 @@
 						<li>Coût de mise en place supérieur</li>
 						<li>Maintenance simplifiée et moins coûteuse</li>
 					</ul>
-					<img src="./img/piechart.gif">
+					<img src="./img/piechart.gif" class="plain">
 				</section>
 				<section>
 					<h5>Exemple : redimensionnement de miniature</h5> L'utilisateur charge une photo ou image pour son profil et celle-ci est redimensionnée automatiquement pour bien s'intégrer au site.
@@ -141,11 +140,9 @@
 				<section>
 					<h4>Faire évoluer une architecture mono-service</h4>
 					<ul>
-						<li>Toutes les fonctionnalités sont réalisées dans le même service</li>
-						<li>Utilisateurs, documents, évènement, discussions, ...</li>
 						<li>Conception initiale ou évolutions qui ont ajouté des fonctionnalité</li>
 						<li>Le service devient trop complexe à maintenir</li>
-						<li>Evolutions compliquées à ajouter : nouveaux composants dans nouveaux langages</li>
+						<li>Evolutions compliquées, difficile d'ajouter de nouveaux composants dans nouveaux langages</li>
 					</ul>
 				</section>
 				<section>
@@ -170,28 +167,10 @@
 				</section>
 			</section>
 			<section>
+				<h4>Authentification</h4>
 				<section>
-					<h4>Architecture Web</h4>
-					<img src="./img/fullstack.png" style="background:none;border:none;box-shadow:none">
-				</section>
-				<section>
-					<h5>Choix de la stack</h5>
-					<img src="./img/stack-items.png">
-				</section>
-				<section>
-					<h5>Nombre de services</h5>
-					<ul>
-						<li>Il va dépendre du découpage fonctionnel</li>
-						<li>Cartographie applicative alignée sur la cartographie métier</li>
-					</ul>
-				</section>
-				<section>
-					<h5>Base de données</h5>
-					<img src="./img/ACP.jpg">
-				</section>
-				<section>
-					<h5>Authentification centralisée</h5>
-					<img src="./img/central-authentication.gif">
+					<h5>Centralisée</h5>
+					<img src="./img/central-authentication.gif" class="plain">
 					<ul>
 						<li>Session centralisée dans le serveur</li>
 						<li>Latence aditionnelle</li>
@@ -199,7 +178,7 @@
 					</ul>
 				</section>
 				<section>
-					<h5>Authentification par jeton</h5>
+					<h5>Par jeton</h5>
 					<ul>
 						<li>JSON Web Token (JWT)</li>
 						<li>Le jeton porte la session</li>
@@ -211,32 +190,51 @@
 						<li>Serveur reste stateless</li>
 					</ul>
 				</section>
+			</section>
+			<section>
 				<section>
-					<h5>API des services backends</h5>
+					<h4>Architecture Web</h4>
+					<img src="./img/fullstack.png" class="plain">
+				</section>
+				<section>
+					<h5>Nombre de services</h5>
+					<ul>
+						<li>Il va dépendre du découpage fonctionnel</li>
+						<li>Cartographie applicative alignée sur la cartographie métier</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Choix de la stack</h5>
+					<img src="./img/stack-items.png" class="plain">
+				</section>
+				<section>
+					<h5>Bases de données</h5>
+					<img src="./img/ACP.jpg" class="plain">
+				</section>
+				<section>
+					<h5>Rendu coté serveur ou coté client ?</h5>
+					<ul>
+						<li>Coté serveur : SEO, plus léger pour le client, mais plus coûteux en resources</li>
+						<li>Coté client : Single Page Application</li>
+						<li>Librairies accessibles avec des CDN</li>
+						<li>On peut faire les 2 !</li>
+					</ul>
+				</section>
+				<section>
+					<h5><a href="https://koumoul-dev.github.io/intro-api-web/">API</a> des services backends</h5>
 					<ul>
 						<li>Points d'entrée pour les clients Web et les autres services</li>
+						<li>La <strong>documentation</strong> et la <strong>contractualisation</strong> sont essentielles</li>
 						<li>Bien respecter la modélisation REST et les verbes HTTP</li>
-						<li>Un verbe = une action</li>
-						<li>GET, POST, PUT, DELETE, PATCH</li>
-						<li>La documentation et la contractualisation sont essentielles</li>
-						<li>Ne pas mettre d'états dans le services ! (stateless => scalable)</li>
+						<li>Un verbe = une action (GET, POST, PUT, DELETE, ...)</li>
+						<li>Ne pas mettre d'états dans le service ! (stateless => scalable)</li>
 						<li>Peut se concevoir rapidement en wrappant un service existant</li>
 						<li>Bien maitriser l'asynchronisme !</li>
 					</ul>
 				</section>
-				<!-- <section>
-					<h5>Representational state transfer (REST)</h5>
-					<ul>
-						<li>Style d'architecture</li>
-						<li>Client-Serveur</li>
-						<li>Sans état</li>
-						<li>Mise en cache</li>
-						<li>Une interface uniforme : identification des ressources, manipulation des ressources à travers des représentations, message auto-descriptif, hypermédia comme moteur d'état de l'application</li>
-					</ul>
-				</section> -->
 				<section>
 					<h5>Contrat / documentation d'API</h5>
-					<img src="./img/swagger.png">
+					<img src="./img/openapi-viewer.png" class="plain">
 				</section>
 				<section>
 					<h5>Compatibilité ascendante</h5>
@@ -245,7 +243,7 @@
 						<li>Compatibilité non assurée => application cassée</li>
 						<li>Versionner les API</li>
 						<li>Privilégier les ajouts à de la réécriture</li>
-						<li>Bien documenter les changement entre les versions</li>
+						<li>Bien documenter les changements entre les versions</li>
 					</ul>
 				</section>
 				<section>
@@ -260,7 +258,10 @@
 				</section>
 				<section>
 					<h5>Reverse proxy</h5>
-					<img src="./img/font-side-proxy[5].png">
+					<img src="./img/RevProxy_Diagram.png" class="plain">
+					<ul>
+						<li>Nginx, HA proxy, Traefik, ...</li>
+					</ul>
 				</section>
 				<section>
 					<h5>Expérience utilisateur</h5>
@@ -275,12 +276,12 @@
 			<section>
 				<section>
 					<h4>Automatisation</h4>
-					<img src="./img/five-little-robots.svg" style="background:none;border:none;box-shadow:none">
+					<img src="./img/five-little-robots.svg" class="plain">
 				</section>
 				<section>
 					<h5>Devops</h5>
 					<ul>
-						<li>development + operations</li>
+						<li>Development + Operations</li>
 						<li>Objectifs contradictoire : fonctionnalité vs stabilité</li>
 						<li>Dévelopements, Déploiements, tests, déploiements, test, ...</li>
 						<li>Feedback / amélioration rapide sur des petites itérations</li>
@@ -289,11 +290,11 @@
 				</section>
 				<section>
 					<h5>Amélioration continue</h5>
-					<img src="./img/DevOps-cycle.png">
+					<img src="./img/DevOps-cycle.png" class="plain">
 				</section>
 				<section>
 					<h5>Développement</h5>
-					<img src="./img/computers.svg" style="width:80%">
+					<img src="./img/computers.svg" style="width:80%" class="plain">
 				</section>
 				<section>
 					<h5>Build</h5>
@@ -345,7 +346,7 @@
 			<section>
 				<section>
 					<h4>Avenement du cloud</h4>
-					<img src="./img/world-wide-web.svg" style="background:none;border:none;box-shadow:none;width:50%">
+					<img src="./img/world-wide-web.svg" class="plain">
 				</section>
 				<section>
 					<h5>Outils en ligne</h5>
@@ -379,10 +380,10 @@
 				</section>
 				<section>
 					<h5>La conteneurisation gagne du terrain !</h5>
-					<img src="./img/Docker_Supply-chain-V1.5-01.png" style="background:none;border:none;box-shadow:none">
+					<img src="./img/Docker_Supply-chain-V1.5-01.png" class="plain">
 				</section>
 				<section>
-					<img src="./img/Strips-Mise-en-Prod-550-final.jpg" style="width:50%">
+					<img src="./img/Strips-Mise-en-Prod-550-final.jpg" style="width:50%" class="plain">
 				</section>
 			</section>
 			<section>
